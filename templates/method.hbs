@@ -1,0 +1,44 @@
+<div class="box box-method">
+
+    <h2><a name="{{{hash}}}">Method: {{parent.name}}.{{name}}()</a></h2>
+
+    {{#if text}}
+        <p class="text">{{{text}}}</p>
+    {{/if}}
+
+    {{#if return}}
+        <p class="return">
+            Returns 
+            {{#if return.type}}
+                <pre>{{return.type}}</pre>
+            {{/if}}
+            {{#if return.description}}
+                {{return.description}}
+            {{/if}}
+        </p>
+    {{/if}}
+
+    <h3>Parameters:</h3>
+    <ul class="params">
+    {{#each params}}
+        <li>
+            {{#if type}}
+                <pre>{{type}}</pre>
+            {{/if}}
+
+            {{#if isOptional}}
+                <label class="optional">[{{name}}]</label>
+            {{else}}
+                <label>{{name}}</label>
+            {{/if}}
+
+            {{#if description}}
+                {{description}}
+            {{/if}}
+        </li>
+    {{/each}}
+    </ul>
+
+    {{> examples}}
+
+</div>

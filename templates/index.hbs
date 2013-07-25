@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <title>Documentation</title>
+
+        <style type="text/css">
+            body {
+                font-family: sans-serif;
+            }
+
+            .return pre, .params pre {
+                display: inline;
+            }
+
+            label {
+                font-weight: bold;
+                display: inline-block;
+            }
+
+            hr {
+                border: 0;
+                height: 1;
+                color: #AAA;
+            }
+
+            .example {
+                background-color: #FFFFAA;
+            }
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="box box-modules">
+
+            <h2>Modules:</h2>
+            <ul>
+            {{#each modules}}
+                <li><a href="#{{{hash}}}">{{name}}</a></li>
+            {{/each}}
+            </ul>
+
+            <hr/>
+
+            {{#each modules}}
+                {{> module}}
+            {{/each}}
+
+        </div>
+    </body>
+</html>
