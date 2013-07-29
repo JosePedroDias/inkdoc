@@ -1,0 +1,40 @@
+{
+  "name": "inkdoc",
+  "version": "0.0.1",
+  "description": "KISS JavaScript documentation generator engine",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JosePedroDias/inkdoc.git"
+  },
+  "keywords": [
+    "javascript",
+    "documentation",
+    "generator",
+    "engine"
+  ],
+  "author": {
+    "name" : "José Pedro Dias",
+    "email" : "jose.pedro.dias@gmail.com",
+    "url" : "http://josepedrodias.com/"
+  },
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "dependencies": {
+    "handlebars": ">= 1.0.12",
+    "marked":     ">= 0.2.9"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "39e2657d2ee63dd6c6d207272b322fc9b03188d6",
+  "bugs": {
+    "url": "https://github.com/JosePedroDias/inkdoc/issues"
+  }
+}
+2

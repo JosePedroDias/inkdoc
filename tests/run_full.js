@@ -8,6 +8,16 @@ var fs             = require('fs'),
 
 
 
+/*var files = [
+    '../lib/CommentStream.js',
+    '../lib/parseComments.js',
+    '../lib/generateMarkup.js'
+];*/
+
+/*var files = [
+    './test1.js'
+];*/
+
 var files = [
     "./Ink/1/lib.js",
     "./Ink/Net/Ajax/1/lib.js",
@@ -62,7 +72,7 @@ parseComments(files, function(err, root) {
 
     console.log('generating markup...');
 
-    //fs.writeFile('docs.json', JSON.stringify(root, null, '\t'));
+    fs.writeFile('docs.json', JSON.stringify(root, null, '\t'));
     
     generateMarkup(root, function(err, markup) {
         if (err) { return console.log(err); }

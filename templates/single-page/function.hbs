@@ -1,6 +1,14 @@
-<div class="box box-method">
+<div class="box box-function">
 
-    <h2><a name="{{{hash}}}">Method: {{parent.name}}.{{name}}()</a></h2>
+    {{#ifvalue parent.value value="class"}}
+        <h2><a name="{{{hash}}}">Method: {{parent.name}}.{{name}}()</a></h2>
+    {{else}}
+        <h2><a name="{{{hash}}}">Function: {{name}}()</a></h2>
+    {{/ifvalue}}
+
+    {{#if async}}
+        <p><label>async</label></p>
+    {{/if}}
 
     {{#if text}}
         <p class="text">{{{text}}}</p>
@@ -13,7 +21,7 @@
                 <pre>{{return.type}}</pre>
             {{/if}}
             {{#if return.description}}
-                {{return.description}}
+                <span class="description">{{{description}}}</span>
             {{/if}}
         </p>
     {{/if}}
@@ -33,7 +41,7 @@
             {{/if}}
 
             {{#if description}}
-                {{description}}
+                <span class="description">{{{description}}}</span>
             {{/if}}
         </li>
     {{/each}}

@@ -1,0 +1,23 @@
+<div class="box box-attribute">
+
+    {{#ifvalue parent.value value="class"}}
+        <h2><a name="{{{hash}}}">Attribute: {{parent.name}}.{{name}}</a></h2>
+    {{else}}
+        <h2><a name="{{{hash}}}">Attribute: {{name}}</a></h2>
+    {{/ifvalue}}
+
+    {{#if text}}
+        <p class="text">{{{text}}}</p>
+    {{/if}}
+
+    {{#if type}}
+        <pre>{{type}}</pre>
+    {{/if}}
+
+    <label>{{name}}</label>
+
+    {{#if description}}
+        <span class="description">{{{description}}}</span>
+    {{/if}}
+
+</div>

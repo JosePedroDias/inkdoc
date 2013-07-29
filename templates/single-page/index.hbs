@@ -28,6 +28,10 @@
             .example {
                 background-color: #FFFFAA;
             }
+
+            .description > * {
+                display: inline-block;
+            }
         }
         </style>
     </head>
@@ -35,7 +39,7 @@
     <body>
         <div class="box box-modules">
 
-            <h2>Modules:</h2>
+            <h2>List of Modules:</h2>
             <ul>
             {{#each modules}}
                 <li><a href="#{{{hash}}}">{{name}}</a></li>

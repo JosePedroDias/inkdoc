@@ -6,7 +6,9 @@ var parseComments  = require('../lib/parseComments');
 
 
 
-var files = [
+var files = ['./test1.js'];
+
+/*var files = [
     "./Ink/1/lib.js",
     "./Ink/Net/Ajax/1/lib.js",
     "./Ink/Net/JsonP/1/lib.js",
@@ -50,7 +52,7 @@ var files = [
     for (var i = 0, f = files.length; i < f; ++i) {
         files[i] = '/home/jdias/Work/inkjs' + files[i].substring(1);
     }
-})();
+})();*/
 
 
 
