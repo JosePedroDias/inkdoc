@@ -9,7 +9,7 @@ var parseComments  = require('../lib/parseComments');
 //var files = ['./test1.js'];
 
 var files = [
-    /*"./Ink/1/lib.js",*/
+    "./Ink/1/lib.js",
     "./Ink/Net/Ajax/1/lib.js",
     "./Ink/Net/JsonP/1/lib.js",
     "./Ink/Dom/Css/1/lib.js",
