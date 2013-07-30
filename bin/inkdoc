@@ -1,0 +1,123 @@
+#! /usr/bin/env node
+
+'use strict';
+
+
+
+var fs     = require('fs'),
+    inkdoc = require('../lib/index');
+
+
+
+// look for configuration
+var found = [];
+
+var lookFor = function(dir, fileName, cb) {
+    var pth = [dir, '/', fileName].join('');
+    //console.log(pth);
+    fs.readFile(pth, {encoding:'utf8'}, function(err, data) {
+        if (!err) {
+            try {
+                data = data.toString('utf8');
+                data = JSON.parse(data);
+                found.unshift(data);
+            } catch (ex) {
+                console.err(ex);
+            }
+        }
+
+        var dir2 = dir.split('/');
+        dir2.pop();
+
+        if (dir2.length < 2) {
+            return cb(null, found);
+        }
+
+        dir2 = dir2.join('/');
+
+        lookFor(dir2, fileName, cb);
+    });
+};
+
+
+
+// object shallow copy
+var extend = function(dst, src) {
+    if (src) {
+        for (var k in src) {
+            if (src.hasOwnProperty(k)){
+                dst[k] = src[k];
+            }
+        }
+    }
+    return dst;
+};
+
+
+
+var currentDir = process.cwd();
+//console.log(currentDir);
+
+
+
+lookFor(currentDir, '.inkdocrc', function(err, found) {
+
+    // no err for now...
+
+    if (found.length === 0) {
+        return console.log('no configuration file(s) named .inkdocrc found!');
+    }
+
+    var cfg = inkdoc.defaultConfiguration;
+
+    var current;
+
+    while (current = found.shift()) {
+        cfg = extend(cfg, current);
+    }
+
+    //console.log('CONFIG:');
+    //console.log(cfg);
+
+    var i, f = cfg.files.length;
+    if (cfg.sourceDir) {
+        for (i = 0; i < f; ++i) {
+            cfg.files[i] = [cfg.sourceDir, cfg.files[i]].join('/');    
+        }
+    }
+
+    //console.log(cfg.files);
+    
+    console.log('parsing source files into metadata...');
+    inkdoc.parseComments(cfg.files, function(err, root) {
+        if (err) { return console.log(err); }
+
+        if (!cfg.skipJSON) {
+            var jsonPath = [cfg.outputDir, cfg.jsonFile].join('/');
+            fs.writeFile(jsonPath, JSON.stringify(root, null, '\t'), function(err) {
+                if (err) { return console.log(err); }
+
+                console.log(jsonPath + ' created.');
+            });
+        }
+
+        if (cfg.skipMarkup) {
+            return console.log('all done.');
+        }
+
+        console.log('generating markup...');
+        
+        inkdoc.generateMarkup(root, function(err, markup) {
+            if (err) { return console.log(err); }
+
+            var markupPath = [cfg.outputDir, cfg.markupFile].join('/');
+            fs.writeFile(markupPath, markup, function(err) {
+                if (err) { return console.log(err); }
+
+                console.log(markupPath + ' created.');
+
+                console.log('all done.');
+            });
+        });
+    });
+});

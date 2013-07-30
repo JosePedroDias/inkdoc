@@ -33,8 +33,8 @@ You can and probably will edit some of the internals and that's fine too!
 
 * module (top level at file)
 * class (in modules)
-* function or method or constructor (in modules and classes, constructor only in classes)
-* param and return (in function-like tags above)
+* function/method, constructor (in modules and classes, only in classes)
+* param, return (in function-like tags above)
 
 
 ## function-related tags
@@ -72,31 +72,119 @@ You can and probably will edit some of the internals and that's fine too!
 * readOnly
 
 
+
+## install
+
+`npm install -g inkdoc`
+
+(sudo may be required depending on your system configuration)
+
+
+
 ## usage
 
-See tests directory.
-
-Workflow number one:
-
-    node run_full.js    # generates docs.html
+This works like jshint, looking for a configuration JSON file from the current directory up to /.
 
 
-Workflow number two:
+### step 1
 
-    node run_1_parse.js > docs.json
-    cat docs.json | node run_2_gen.js > docs.html
+Create a file named `.inkdocrc` on the topmost directory of the project.
+
+Edit the configuration options which need overriding, such as:
+
+```
+{
+    "outputDir":  "/home/jdias/Work/inkjs/docs",
+    "sourceDir":  "/home/jdias/Work/inkjs/Ink",
+    "template":   "single-page",
+    "markupFile": "index.html",
+    "files": [
+        "1/lib.js",
+        "Net/Ajax/1/lib.js",
+        "Net/JsonP/1/lib.js",
+        "Dom/Css/1/lib.js",
+        "Dom/Element/1/lib.js",
+        "Dom/Event/1/lib.js",
+        "Dom/Loaded/1/lib.js",
+        "Dom/Selector/1/lib.js",
+        "Dom/Browser/1/lib.js",
+        "Util/Url/1/lib.js",
+        "Util/Swipe/1/lib.js",
+        "Util/String/1/lib.js",
+        "Util/Dumper/1/lib.js",
+        "Util/Date/1/lib.js",
+        "Util/Cookie/1/lib.js",
+        "Util/Array/1/lib.js",
+        "Util/Validator/1/lib.js",
+        "Util/BinPack/1/lib.js",
+        "UI/Aux/1/lib.js",
+        "UI/Modal/1/lib.js",
+        "UI/ProgressBar/1/lib.js",
+        "UI/SmoothScroller/1/lib.js",
+        "UI/SortableList/1/lib.js",
+        "UI/Spy/1/lib.js",
+        "UI/Sticky/1/lib.js",
+        "UI/Table/1/lib.js",
+        "UI/Tabs/1/lib.js",
+        "UI/ImageQuery/1/lib.js",
+        "UI/TreeView/1/lib.js",
+        "UI/FormValidator/1/lib.js",
+        "UI/Droppable/1/lib.js",
+        "UI/Draggable/1/lib.js",
+        "UI/DatePicker/1/lib.js",
+        "UI/Close/1/lib.js",
+        "UI/Toggle/1/lib.js",
+        "UI/Pagination/1/lib.js"
+    ]
+}
+```
+
+This only needs to be edited when you need to update your configuration.
+
+**Advanced tip**: if you have several projects sharing some options, inkdoc reads all .inkdocrc files along the way, overriding iteratively. This can be helpful.
 
 
+### step 2
+
+run
+
+    inkdoc
+
+
+
+### default configuration
+
+```
+{
+    templatesDir:                      __dirname + '/templates',
+    outputDir:                         '.',
+    sourceDir:                         undefined,
+
+    jsonFile:                          'docs.json',
+    markupFile:                        'docs.html',
+
+    files:                             [],
+    template:                          'single-page',
+    ommitPrivates:                     true,
+    treatUnderscorePrefixesAsPrivates: true,
+    skipJSON:                          false,
+    skipMarkup:                        false
+}
+```
 
 ## TODO
 
-* Create a different markup which uses the JSON file client-side, expands the templates client-side and allows for autcomplete search of symbols
-* A decent CSS stylesheet?
-* configuration file like .jshintrc
-* add support for global usage
+* Create additional templates and stylesheets (ex: one page per module, client side search, sphinx output, ...)
+
 
 
 ### Log
+
+**July the 30th 2013 (v0.0.3)**:
+
+* global executable (inkdoc)
+* support for .inkdocrc
+
 
 **July the 30th 2013 (v0.0.2)**:
 

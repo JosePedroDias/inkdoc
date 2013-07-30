@@ -1,6 +1,6 @@
 {
   "name": "inkdoc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "KISS JavaScript documentation generator engine",
   "main": "lib/index.js",
   "directories": {
@@ -30,6 +30,9 @@
     "esprima":    ">= 1.0.3",
     "handlebars": ">= 1.0.12",
     "marked":     ">= 0.2.9"
+  },
+  "bin": {
+    "inkdoc": "bin/inkdoc"
   },
   "license": "MIT",
   "readmeFilename": "README.md",
