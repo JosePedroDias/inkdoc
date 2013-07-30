@@ -27,6 +27,7 @@
     "node": ">= 0.8.x"
   },
   "dependencies": {
+    "esprima":    ">= 1.0.3",
     "handlebars": ">= 1.0.12",
     "marked":     ">= 0.2.9"
   },
@@ -37,4 +38,3 @@
     "url": "https://github.com/JosePedroDias/inkdoc/issues"
   }
 }
-2

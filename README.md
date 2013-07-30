@@ -6,18 +6,20 @@
 
 The engine is split into the following parts:
 
-* a stream reader that publishes block comment events `CommentStream`
 * comments parsing into JSON metadata `parseComments`
 * HTML markup generation from JSON metadata `generateMarkup`
 
-We make use of handlebars templates for generating the expanded markup.
-We make use of marked markdown library to parse markdown syntax.
+We make use of **esprima** to extract block comments from JavaScript source files.
+We make use of **handlebars** templates for generating the expanded markup.
+We make use of **marked** markdown library to parse markdown syntax.
+
 
 
 ## motivation
 
 It shouldn't be THAT difficult to tame a documentation generation engine.
 The rationale here is to have a generic-enough solution.
+You can and probably will edit some of the internals and that's fine too!
 
 
 
@@ -27,22 +29,23 @@ The rationale here is to have a generic-enough solution.
 
 * module (top level at file)
 * class (in modules)
-* function (in modules and classes) *
-* method, constructor (in classes) *
-* param (in methods)
-* return (in methods)
-* example (in modules, classes and methods)
+* function or method or constructor (in modules and classes, constructor only in classes)
+* param and return (in function-like tags above)
 
 
 ### boolean tags
 
 * async
+* deprecated
+* private
 
 
 ### property tags
 
 * author
+* example
 * since
+* uses
 * version
 
 
@@ -65,15 +68,20 @@ Workflow number two:
 
 ## TODO
 
-* Improve the stategy for fetching text nodes (some tags are sharing text nodes because property tags aren't grabbing their text nodes)
-* Fix bug in cursor on CommentStream (relevant for generic use cases, not prement to this use case)
-* Add additional relevant tags/tag contexts - methods out of classes, per instance
 * Create a different markup which uses the JSON file client-side, expands the templates client-side and allows for autcomplete search of symbols
 * A decent CSS stylesheet?
 
 
 
 ### Log
+
+July the ? 2013 (v0.0.2):
+
+* ditched old comment extraction code in favor of esprima
+* completely rewritten tag parsing strategy (from top-down to bottom-up)
+* added several tags
+* slightly improved template
+
 
 July the 26th 2013 (v0.0.1):
 
