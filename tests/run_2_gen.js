@@ -2,7 +2,7 @@
 
 
 
-var generateMarkup = require('../lib/generateMarkup');
+var inkdoc = require('../lib/index');
 
 
 
@@ -20,7 +20,7 @@ process.stdin.on('end', function() {
     data = data.join('');
     var root = JSON.parse(data);
 
-    generateMarkup(root, function(err, markup) {
+    inkdoc.generateMarkup(root, function(err, markup) {
         if (err) { return console.log(err); }
 
         process.stdout.write(markup);

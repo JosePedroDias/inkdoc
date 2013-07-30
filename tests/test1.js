@@ -68,9 +68,18 @@ CdeClass.prototype = {
     /**
      * yo yo
      * 
-     * @property {Number} abc2 afq qw pgjwegpw je gpo
+     * @property {Number} abc afq qw pgjwegpw je gpo
      */
-    abc2: 4
+    abc: 2,
+
+    /**
+     * yo yo 2
+     * 
+     * @property abc2 asdqw fq fjqw fiqwf 
+     * @type Number
+     * @default 4
+     */
+    abc2: 4,
 };
 
 
@@ -81,6 +90,8 @@ CdeClass.prototype = {
  * @version 1
  * @author a AT b.com
  * @since July 2013
+ *
+ * @uses MyModule
  */
 
 /**
