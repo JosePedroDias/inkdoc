@@ -93,6 +93,7 @@ Workflow number two:
 * Create a different markup which uses the JSON file client-side, expands the templates client-side and allows for autcomplete search of symbols
 * A decent CSS stylesheet?
 * configuration file like .jshintrc
+* add support for global usage
 
 
 ### Log
