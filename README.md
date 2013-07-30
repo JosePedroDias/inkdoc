@@ -33,6 +33,18 @@ You can and probably will edit some of the internals and that's fine too!
 * param and return (in function-like tags above)
 
 
+## function-related tags
+
+* param
+* return
+
+
+## attribute-related tags
+
+* type
+* default
+
+
 ### boolean tags
 
 * async
@@ -49,6 +61,11 @@ You can and probably will edit some of the internals and that's fine too!
 * uses
 * version
 
+
+### ignored tags
+
+* public
+* readOnly
 
 
 ## usage
@@ -80,6 +97,7 @@ July the ? 2013 (v0.0.2):
 
 * ditched old comment extraction code in favor of esprima
 * completely rewritten tag parsing strategy (from top-down to bottom-up)
+* friendly warnings and errors
 * added several tags
 * slightly improved template
 

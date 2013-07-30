@@ -9,7 +9,6 @@ var fs             = require('fs'),
 
 
 /*var files = [
-    '../lib/CommentStream.js',
     '../lib/parseComments.js',
     '../lib/generateMarkup.js'
 ];*/
@@ -37,7 +36,6 @@ var files = [
     "./Ink/Util/Array/1/lib.js",
     "./Ink/Util/Validator/1/lib.js",
     "./Ink/Util/BinPack/1/lib.js",
-    "./Ink/Util/Image/1/lib.js",
     "./Ink/UI/Aux/1/lib.js",
     "./Ink/UI/Modal/1/lib.js",
     "./Ink/UI/ProgressBar/1/lib.js",
@@ -49,7 +47,6 @@ var files = [
     "./Ink/UI/Tabs/1/lib.js",
     "./Ink/UI/ImageQuery/1/lib.js",
     "./Ink/UI/TreeView/1/lib.js",
-    "./Ink/UI/Gallery/1/lib.js",
     "./Ink/UI/FormValidator/1/lib.js",
     "./Ink/UI/Droppable/1/lib.js",
     "./Ink/UI/Draggable/1/lib.js",

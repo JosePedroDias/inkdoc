@@ -14,6 +14,15 @@
         <p><label>version:</label>{{version}}</p>
     {{/if}}
 
+    {{#if uses}}
+        <h3>uses:</h3>
+        <ul>
+        {{#each uses}}
+            <li>{{this}}</li>
+        {{/each}}
+        </ul>
+    {{/if}}
+
     {{#if text}}
         <p class="text">{{{text}}}</p>
     {{/if}}
