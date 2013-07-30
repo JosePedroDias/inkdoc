@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         
-        <title>Documentation</title>
+        <title>{{title}}</title>
 
         <style type="text/css">
             body {
@@ -93,6 +93,8 @@
             </ul>
 
         </div>
+
+        {{> module}}
 
         {{#each modules}}
             {{> module}}

@@ -79,17 +79,17 @@ lookFor(currentDir, '.inkdocrc', function(err, found) {
     //console.log('CONFIG:');
     //console.log(cfg);
 
-    var i, f = cfg.files.length;
+    var i, f = cfg.sourceFiles.length;
     if (cfg.sourceDir) {
         for (i = 0; i < f; ++i) {
-            cfg.files[i] = [cfg.sourceDir, cfg.files[i]].join('/');    
+            cfg.sourceFiles[i] = [cfg.sourceDir, cfg.sourceFiles[i]].join('/');    
         }
     }
 
     //console.log(cfg.files);
     
     console.log('parsing source files into metadata...');
-    inkdoc.parseComments(cfg.files, function(err, root) {
+    inkdoc.parseComments(cfg.sourceFiles, function(err, root) {
         if (err) { return console.log(err); }
 
         if (!cfg.skipJSON) {
@@ -107,7 +107,7 @@ lookFor(currentDir, '.inkdocrc', function(err, found) {
 
         console.log('generating markup...');
         
-        inkdoc.generateMarkup(root, function(err, markup) {
+        inkdoc.generateMarkup(root, cfg, function(err, markup) {
             if (err) { return console.log(err); }
 
             var markupPath = [cfg.outputDir, cfg.markupFile].join('/');

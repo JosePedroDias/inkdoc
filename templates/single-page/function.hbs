@@ -1,6 +1,6 @@
 <div class="box box-function">
 
-    {{#ifvalue parent.value value="class"}}
+    {{#ifvalue parent.kind value="class"}}
         <h2><a name="{{{hash}}}">Method: {{parent.name}}.{{name}}()</a></h2>
     {{else}}
         <h2><a name="{{{hash}}}">Function: {{name}}()</a></h2>

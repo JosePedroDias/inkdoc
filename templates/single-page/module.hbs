@@ -1,6 +1,8 @@
 <div class="box box-module">
 
-    <h2><a name="{{{hash}}}">Module: {{name}}</a></h2>
+    {{#if name}}
+        <h2><a name="{{{hash}}}">Module: {{name}}</a></h2>
+    {{/if}}
 
     {{!<p>Defined in file: {file}</p>}}
 
