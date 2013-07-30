@@ -14,7 +14,7 @@ var files = [
     "./Ink/Net/JsonP/1/lib.js",
     "./Ink/Dom/Css/1/lib.js",
     "./Ink/Dom/Element/1/lib.js",
-    "./Ink/Dom/Event/1/lib.js"/*,
+    "./Ink/Dom/Event/1/lib.js",
     "./Ink/Dom/Loaded/1/lib.js",
     "./Ink/Dom/Selector/1/lib.js",
     "./Ink/Dom/Browser/1/lib.js",
@@ -44,7 +44,7 @@ var files = [
     "./Ink/UI/DatePicker/1/lib.js",
     "./Ink/UI/Close/1/lib.js",
     "./Ink/UI/Toggle/1/lib.js",
-    "./Ink/UI/Pagination/1/lib.js"*/
+    "./Ink/UI/Pagination/1/lib.js"
 ];
 (function() {
     for (var i = 0, f = files.length; i < f; ++i) {

@@ -2,7 +2,7 @@
 
     <h2><a name="{{{hash}}}">Module: {{name}}</a></h2>
 
-    <p>Defined in file: {{file}}</p>
+    {{!<p>Defined in file: {file}</p>}}
 
     {{#if author}}
         <p><label>author:</label>{{author}}</p>
@@ -20,32 +20,32 @@
 
     {{> examples}}
 
-    {{#if classes.length}}
+    {{!if classes.length}}
         <h3>Defined classes:</h3>
         <ul>
         {{#each classes}}
             <li><a href="#{{{hash}}}">{{name}}</a></li>
         {{/each}}
         </ul>
-    {{/if}}
+    {{!if}}
 
-    {{#if functions.length}}
+    {{!if functions.length}}
         <h3>Defined functions:</h3>
         <ul>
         {{#each functions}}
             <li><a href="#{{{hash}}}">{{name}}()</a></li>
         {{/each}}
         </ul>
-    {{/if}}
+    {{!if}}
 
-    {{#if attributes.length}}
+    {{!if attributes.length}}
         <h3>Defined attributes:</h3>
         <ul>
         {{#each attributes}}
             <li><a href="#{{{hash}}}">{{name}}</a></li>
         {{/each}}
         </ul>
-    {{/if}}
+    {{!if}}
 
 </div>
 

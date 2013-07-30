@@ -10,19 +10,29 @@
                 font-family: sans-serif;
             }
 
-            .return pre, .params pre {
-                display: inline;
+            h1, h2, h3 {
+                margin: 0;
             }
 
             label {
                 font-weight: bold;
                 display: inline-block;
+                margin-right: 1em;
+            }
+
+            ul {
+                list-style-type: none;
             }
 
             hr {
                 border: 0;
                 height: 1;
                 color: #AAA;
+            }
+
+            .return pre, .params pre, .box-attribute pre {
+                display: inline;
+                min-width: 5em;
             }
 
             .example {
@@ -32,6 +42,23 @@
             .description > * {
                 display: inline-block;
             }
+
+            .box-modules {
+                position: fixed;
+                right: 0;
+                top: 0;
+                font-size: 0.8em;
+            }
+
+            .box {
+                border-radius: 1em;
+                padding: 1em;
+                margin-bottom: 0.5em;
+            }
+
+            .box-module {   background-color: #DDF; }
+            .box-class {    background-color: #FDF; }
+            .box-function { background-color: #DFF; }
         }
         </style>
     </head>
@@ -39,18 +66,18 @@
     <body>
         <div class="box box-modules">
 
-            <h2>List of Modules:</h2>
+            <h2>Modules:</h2>
             <ul>
             {{#each modules}}
                 <li><a href="#{{{hash}}}">{{name}}</a></li>
             {{/each}}
             </ul>
 
-            <hr/>
+        </div>
 
-            {{#each modules}}
-                {{> module}}
-            {{/each}}
+        {{#each modules}}
+            {{> module}}
+        {{/each}}
 
         </div>
     </body>

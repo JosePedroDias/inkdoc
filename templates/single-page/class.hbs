@@ -20,23 +20,23 @@
 
     {{> examples}}
 
-    {{#if functions.length}}
+    {{!if functions.length}}
         <h3>Defined methods:</h3>
         <ul>
         {{#each functions}}
             <li><a href="#{{{hash}}}">{{parent.name}}.{{name}}()</a></li>
         {{/each}}
         </ul>
-    {{/if}}
+    {{!if}}
 
-    {{#if attributes.length}}
+    {{!if attributes.length}}
         <h3>Defined attributes:</h3>
         <ul>
         {{#each attributes}}
             <li><a href="#{{{hash}}}">{{parent.name}}.{{name}}</a></li>
         {{/each}}
         </ul>
-    {{/if}}
+    {{!if}}
 
 </div>
 
