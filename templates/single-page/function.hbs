@@ -7,7 +7,10 @@
     {{/ifvalue}}
 
     {{#if async}}
-        <p><label>async</label></p>
+        <span class="tag">async</span>
+    {{/if}}
+    {{#if deprecated}}
+        <span class="tag">deprecated</span>
     {{/if}}
 
     {{#if text}}

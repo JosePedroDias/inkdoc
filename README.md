@@ -138,6 +138,12 @@ It groups information in a hierarchy of modules, classes and functions/attribute
 
 ### Log
 
+**July the 30th 2013 (v0.0.5)**:
+
+* now the type is unwrapped from {}
+* added CSS class for boolean tags (named tag)
+
+
 **July the 30th 2013 (v0.0.4)**:
 
 * major rewrite of README.md
