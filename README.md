@@ -38,6 +38,7 @@ You can and probably will edit some of the internals and that's fine too!
 * async
 * deprecated
 * private
+* static
 
 
 ### property tags
