@@ -10,7 +10,9 @@ The engine is split into the following parts:
 * HTML markup generation from JSON metadata `generateMarkup`
 
 We make use of **esprima** to extract block comments from JavaScript source files.
+
 We make use of **handlebars** templates for generating the expanded markup.
+
 We make use of **marked** markdown library to parse markdown syntax.
 
 
@@ -18,7 +20,9 @@ We make use of **marked** markdown library to parse markdown syntax.
 ## motivation
 
 It shouldn't be THAT difficult to tame a documentation generation engine.
+
 The rationale here is to have a generic-enough solution.
+
 You can and probably will edit some of the internals and that's fine too!
 
 
@@ -93,7 +97,7 @@ Workflow number two:
 
 ### Log
 
-July the 30th 2013 (v0.0.2):
+**July the 30th 2013 (v0.0.2)**:
 
 * ditched old comment extraction code in favor of esprima
 * completely rewritten tag parsing strategy (from top-down to bottom-up)
@@ -102,7 +106,7 @@ July the 30th 2013 (v0.0.2):
 * slightly improved template
 
 
-July the 26th 2013 (v0.0.1):
+**July the 26th 2013 (v0.0.1)**:
 
 * added aliases for tags
 * added tags attribute/variable/property
