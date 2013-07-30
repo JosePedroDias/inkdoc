@@ -93,7 +93,7 @@ Workflow number two:
 
 ### Log
 
-July the ? 2013 (v0.0.2):
+July the 30th 2013 (v0.0.2):
 
 * ditched old comment extraction code in favor of esprima
 * completely rewritten tag parsing strategy (from top-down to bottom-up)
