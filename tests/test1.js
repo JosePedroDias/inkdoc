@@ -95,8 +95,21 @@ CdeClass.prototype = {
  */
 
 /**
- * stuff for var
- * 
- * @variable {Number} abc qfqwf qwfq wf
+ * @namespace AEIOU
  */
-var c = 3;
+var AEIOU = {
+
+    /**
+     * @function abc
+     */
+    abc: function() {
+
+    },
+
+    /**
+     * stuff for var
+     * 
+     * @variable {Number} c qfqwf qwfq wf
+     */
+    c: 3
+};

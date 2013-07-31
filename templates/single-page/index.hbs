@@ -85,16 +85,18 @@
     </head>
 
     <body>
-        <div class="box box-modules">
+        {{#if modules.length}}
+            <div class="box box-modules">
 
-            <h2>Modules:</h2>
-            <ul>
-            {{#each modules}}
-                <li><a href="#{{{hash}}}">{{name}}</a></li>
-            {{/each}}
-            </ul>
+                <h2>Modules:</h2>
+                <ul>
+                {{#each modules}}
+                    <li><a href="#{{{hash}}}">{{name}}</a></li>
+                {{/each}}
+                </ul>
 
-        </div>
+            </div>
+        {{/if}}
 
         {{> module}}
 

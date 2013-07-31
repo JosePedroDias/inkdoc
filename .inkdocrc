@@ -1,0 +1,9 @@
+{
+    "outputDir":  "sample",
+    "sourceDir":  "lib",
+    "title":      "inkdoc module API",
+    "sourceFiles": [
+        "parseComments.js",
+        "generateMarkup.js"
+    ]
+}

@@ -1,10 +1,14 @@
 <div class="box box-function">
 
-    {{#ifvalue parent.kind value="class"}}
-        <h2><a name="{{{hash}}}">Method: {{parent.name}}.{{name}}()</a></h2>
+    {{#if isConstructor}}
+        <h2><a name="{{{hash}}}">Constructor: {{parent.name}}()</a></h2>
     {{else}}
-        <h2><a name="{{{hash}}}">Function: {{name}}()</a></h2>
-    {{/ifvalue}}
+        {{#ifvalue parent.kind value="class"}}
+            <h2><a name="{{{hash}}}">Method: {{parent.name}}.{{name}}()</a></h2>
+        {{else}}
+            <h2><a name="{{{hash}}}">Function: {{parent.name}}.{{name}}()</a></h2>
+        {{/ifvalue}}
+    {{/if}}
 
     {{#if async}}
         <span class="tag">async</span>
@@ -29,26 +33,28 @@
         </p>
     {{/if}}
 
-    <h3>Parameters:</h3>
-    <ul class="params">
-    {{#each params}}
-        <li>
-            {{#if type}}
-                <pre>{{type}}</pre>
-            {{/if}}
+    {{#if params.length}}
+        <h3>Parameters:</h3>
+        <ul class="params">
+        {{#each params}}
+            <li>
+                {{#if type}}
+                    <pre>{{type}}</pre>
+                {{/if}}
 
-            {{#if isOptional}}
-                <label class="optional">[{{name}}]</label>
-            {{else}}
-                <label>{{name}}</label>
-            {{/if}}
+                {{#if isOptional}}
+                    <label class="optional">[{{name}}]</label>
+                {{else}}
+                    <label>{{name}}</label>
+                {{/if}}
 
-            {{#if description}}
-                <span class="description">{{{description}}}</span>
-            {{/if}}
-        </li>
-    {{/each}}
-    </ul>
+                {{#if description}}
+                    <span class="description">{{{description}}}</span>
+                {{/if}}
+            </li>
+        {{/each}}
+        </ul>
+    {{/if}}
 
     {{> examples}}
 

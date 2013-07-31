@@ -20,8 +20,8 @@ These are the currently supported tags:
 * special tags
 
     * module (optional grouping structure, root module assumed otherwise)
-    * class (in modules)
-    * function/method, constructor (in modules and classes, only in classes)
+    * class/namespace (in modules)
+    * function/method, constructor (in modules and classes/namespaces, only in classes/namespaces)
     * param, return (in function-like tags above)
 
 * function-related tags
@@ -106,6 +106,7 @@ just run
 * **markupFile**                        (String)   - file name to use to write the generated markup. Defaults to `docs.html`
 * **template**                          (String)   - name of template to use. Default is `single-page`
 * **title**                             (String)   - project title. Default is `Documentation`
+* **sortChildren**                      (Boolean)  - if true, modules, classes/namespaces, functions and attributes are sorted alphabetically. If not, they appear in the order they're processed. Default is `true`
 * **ommitPrivates**                     (Boolean)  - if true, functions and attributes tagged @private will not appear on the generated markup. Default is `true`
 * **treatUnderscorePrefixesAsPrivates** (Boolean)  - if true, functions and attributes prefixed with _ will be treated as privates too. Default is `true`
 * **skipJSON**                          (Boolean)  - if true, the extracted metadata won't be persisted to file. Default is `false`
@@ -138,6 +139,13 @@ It groups information in a hierarchy of modules, classes and functions/attribute
 
 ### Log
 
+**July the 31st 2013 (v0.0.6)**:
+
+* metadata format now uses arrays as bags instead of objects (simplifies template scripting without any drawbacks)
+* added tag `namespace` (similar to a class, but a bag of stuff without need to call new Ctor())
+* added option `sortChildren`, true by default
+
+
 **July the 30th 2013 (v0.0.5)**:
 
 * now the type is unwrapped from {}
@@ -149,7 +157,7 @@ It groups information in a hierarchy of modules, classes and functions/attribute
 * major rewrite of README.md
 * changed the option files to sourceFiles (to avoid confusion)
 * passed options to generateMarkup
-* module tags become optional
+* `module` tags become optional
 
 
 **July the 30th 2013 (v0.0.3)**:
