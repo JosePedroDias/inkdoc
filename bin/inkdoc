@@ -107,8 +107,10 @@ lookFor(currentDir, '.inkdocrc', function(err, found) {
 
         console.log('generating markup...');
         
-        inkdoc.generateMarkup(root, cfg, function(err, markup) {
+        inkdoc.generateMarkup(root, cfg, function(err, markup, identifiers) {
             if (err) { return console.log(err); }
+
+            var left = cfg.skipIdentifiers ? 1 : 0;
 
             var markupPath = [cfg.outputDir, cfg.markupFile].join('/');
             fs.writeFile(markupPath, markup, function(err) {
@@ -116,7 +118,27 @@ lookFor(currentDir, '.inkdocrc', function(err, found) {
 
                 console.log(markupPath + ' created.');
 
-                console.log('all done.');
+                --left;
+                if (left === 0) {
+                    console.log('all done.');
+                }
+            });
+
+            if (cfg.skipIdentifiers) { return; }
+
+            //identifiers = JSON.stringify(identifiers, null, '\t');
+            identifiers = JSON.stringify(identifiers);
+
+            var identifiersPath = [cfg.outputDir, cfg.identifiersFile].join('/');
+            fs.writeFile(identifiersPath, identifiers, function(err) {
+                if (err) { return console.log(err); }
+
+                console.log(identifiersPath + ' created.');
+
+                --left;
+                if (left === 0) {
+                    console.log('all done.');
+                }
             });
         });
     });

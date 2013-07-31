@@ -104,6 +104,7 @@ just run
 * **outputDir**                         (String)   - path to the directory where generated content will be written. Defaults to `.`
 * **jsonFile**                          (String)   - file name to use to write the extracted metadata in the JSON format. Defaults to `docs.json`
 * **markupFile**                        (String)   - file name to use to write the generated markup. Defaults to `docs.html`
+* **identifierFile**                    (String)   - file name to use to write the extracted identifiers. Defaults to `identifiers.json`
 * **template**                          (String)   - name of template to use. Default is `single-page`
 * **title**                             (String)   - project title. Default is `Documentation`
 * **sortChildren**                      (Boolean)  - if true, modules, classes/namespaces, functions and attributes are sorted alphabetically. If not, they appear in the order they're processed. Default is `true`
@@ -111,6 +112,7 @@ just run
 * **treatUnderscorePrefixesAsPrivates** (Boolean)  - if true, functions and attributes prefixed with _ will be treated as privates too. Default is `true`
 * **skipJSON**                          (Boolean)  - if true, the extracted metadata won't be persisted to file. Default is `false`
 * **skipMarkup**                        (Boolean)  - if true, no markup will be generated. Default is `false`
+* **skipIdentifiers**                   (Boolean)  - if true, no identifiers will be extracted. Default is `false`
 
 
 
@@ -138,6 +140,12 @@ It groups information in a hierarchy of modules, classes and functions/attribute
 
 
 ### Log
+
+**July the 31st 2013 (v0.0.7)**:
+
+* extracts identifiers optionally
+* exposing new options identifiersFile, skipIdentifiers
+
 
 **July the 31st 2013 (v0.0.6)**:
 

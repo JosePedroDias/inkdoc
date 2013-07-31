@@ -5,11 +5,9 @@
         
         <title>{{title}}</title>
 
-        <style type="text/css">
-            body {
-                font-family: sans-serif;
-            }
+        <link rel="stylesheet" type="text/css" href="http://cdn.ink.sapo.pt/2.2.0/css/ink-min.css" type="text/css" media="screen" charset="utf-8">
 
+        <style type="text/css">
             h1, h2, h3 {
                 margin: 0;
             }
@@ -27,6 +25,10 @@
             ul {
                 list-style-type: none;
                 padding: 0;
+            }
+
+            pre, code {
+                font-family: monospace;
             }
 
             .tag {
@@ -49,10 +51,8 @@
             }
 
             .example {
-                background-color: #FFFFAA;
-                margin: 0.5em;
-                box-shadow: inset 0 0 0.5em #000;
-                border-radius: 0.5em;
+                background-color: #EEEEDD;
+                margin: 0;
             }
 
             .description > * {
@@ -63,8 +63,16 @@
                 position: fixed;
                 right: 0;
                 top: 0;
-                font-size: 0.8em;
-                background: rgba(255, 255, 255, 0.5);
+                font-size: 0.7em !important;
+                background: rgba(255, 255, 255, 0.75);
+            }
+
+            .box-modules h2 {
+                font-size: 1.2em !important;
+            }
+
+            .box-modules ul {
+                margin: 0;
             }
 
             .box-modules a {
@@ -72,14 +80,25 @@
             }
 
             .box {
-                border-radius: 1em;
+                border-top-left-radius: 1em;
                 padding: 1em;
                 margin-bottom: 0.5em;
+                font-size: 0.9em;
             }
 
-            .box-module {   background-color: #DDF; }
-            .box-class {    background-color: #FDF; }
-            .box-function { background-color: #DFF; }
+
+            .box-module, .box-class, .box-function, .box-attribute {
+                border-top-width: 8px;
+                border-top-style: solid;
+
+                border-left-width: 8px;
+                border-left-style: solid;
+            }
+
+            .box-module {    border-color: #AAA; }
+            .box-class {     border-color: #C99; }
+            .box-function {  border-color: #99C; }
+            .box-attribute { border-color: #9C9; }
         }
         </style>
     </head>
