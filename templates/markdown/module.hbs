@@ -1,0 +1,27 @@
+{{#if name}}
+## Module: {{name}}
+
+{{/if}}
+{{#if author}}
+    author: {{author}}
+{{/if}}
+{{#if since}}
+    since: {{since}}
+{{/if}}
+{{#if version}}
+    version: {{version}}
+{{/if}}
+
+{{#if text}}{{{text}}}{{/if}}
+
+{{> examples}}
+
+{{#each classes}}
+{{> class}}
+{{/each}}
+{{#each functions}}
+{{> function}}
+{{/each}}
+{{#each attributes}}
+{{> attribute}}
+{{/each}}

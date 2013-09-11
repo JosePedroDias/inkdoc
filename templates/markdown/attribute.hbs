@@ -1,0 +1,13 @@
+{{#ifvalue parent.kind value="class"}}
+## Attribute: {{parent.name}}.{{name}}
+{{else}}
+## Attribute: {{name}}
+{{/ifvalue}}
+
+{{#if deprecated}}**deprecated**{{/if}}
+
+{{#if text}}{{{text}}}{{/if}}
+
+{{#if type}}`{{type}}`{{/if}} {{name}}
+
+{{#if description}}{{{description}}}{{/if}}

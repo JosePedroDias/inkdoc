@@ -1,0 +1,27 @@
+
+{{#if isNamespace}}
+## Namespace: {{name}}
+{{else}}
+## Class: {{name}}
+{{/if}}
+
+{{#if author}}
+    author: {{author}}
+{{/if}}
+{{#if since}}
+    since: {{since}}
+{{/if}}
+{{#if version}}
+    version: {{version}}
+{{/if}}
+
+{{#if text}}{{{text}}}{{/if}}
+
+{{> examples}}
+
+{{#each functions}}
+{{> function}}
+{{/each}}
+{{#each attributes}}
+{{> attribute}}
+{{/each}}

@@ -1,0 +1,13 @@
+{{#if return}}{{#if return.type}}`{{return.type}}`
+{{/if}}{{/if}}**{{name}}**({{#foreach params}}
+{{#if isOptional}}[{{/if}}{{#if type}}`{{type}}` {{/if}}{{name}}{{#if isOptional}}]{{/if}}{{#unless $last}},{{/unless}}{{/foreach}}
+) *function*
+
+{{#if text}}{{{text}}}{{/if}}
+
+{{#if async}}**async**{{/if}}
+{{#if deprecated}}**deprecated**{{/if}}
+
+{{> examples}}
+
+---

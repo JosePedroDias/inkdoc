@@ -141,6 +141,12 @@ It groups information in a hierarchy of modules, classes and functions/attribute
 
 ### Log
 
+
+**September the 11th 2013 (v0.0.8)**:
+
+* added markdown template, more suited for github repos and stuff
+
+
 **July the 31st 2013 (v0.0.7)**:
 
 * extracts identifiers optionally
