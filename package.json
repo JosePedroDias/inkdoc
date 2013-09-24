@@ -3,6 +3,7 @@
   "version": "0.0.8",
   "description": "KISS JavaScript documentation generator engine",
   "main": "lib/index.js",
+  "preferGlobal": true,
   "directories": {
     "test": "tests"
   },
