@@ -1,6 +1,11 @@
 # inkdoc - a KISS JavaScript documentation engine
 
 
+[![NPM](https://nodei.co/npm/inkdoc.png?downloads=true&compact=true)](https://nodei.co/npm/inkdoc/)
+
+[![NPM](https://nodei.co/npm-dl/inkdoc.png?months=2)](https://nodei.co/npm/inkdoc/)
+
+
 ## motivation
 
 It shouldn't be THAT difficult to tame a documentation generation engine.
