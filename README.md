@@ -146,6 +146,10 @@ It groups information in a hierarchy of modules, classes and functions/attribute
 
 ### Log
 
+**September the 24th 2013 (v0.1.0)**:
+
+* now using semver versioning
+
 
 **September the 11th 2013 (v0.0.8)**:
 
