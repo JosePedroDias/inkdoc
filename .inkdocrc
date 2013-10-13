@@ -4,6 +4,7 @@
     "title":      "inkdoc module API",
     "sourceFiles": [
         "parseComments.js",
+        "prepareStructure.js",
         "generateMarkup.js"
     ]
 }

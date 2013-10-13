@@ -22,7 +22,7 @@ var lookFor = function(dir, fileName, cb) {
                 data = JSON.parse(data);
                 found.unshift(data);
             } catch (ex) {
-                console.err(ex);
+                console.error(ex);
             }
         }
 
@@ -82,22 +82,24 @@ lookFor(currentDir, '.inkdocrc', function(err, found) {
     var i, f = cfg.sourceFiles.length;
     if (cfg.sourceDir) {
         for (i = 0; i < f; ++i) {
-            cfg.sourceFiles[i] = [cfg.sourceDir, cfg.sourceFiles[i]].join('/');    
+            cfg.sourceFiles[i] = [cfg.sourceDir, cfg.sourceFiles[i]].join('/');
         }
     }
 
     //console.log(cfg.files);
-    
+
     console.log('parsing source files into metadata...');
-    inkdoc.parseComments(cfg.sourceFiles, function(err, root) {
-        if (err) { return console.log(err); }
+    inkdoc.parseComments(cfg, function(err, root) {
+        if (err) { return console.error(err); }
 
         if (!cfg.skipJSON) {
             var jsonPath = [cfg.outputDir, cfg.jsonFile].join('/');
             fs.writeFile(jsonPath, JSON.stringify(root, null, '\t'), function(err) {
-                if (err) { return console.log(err); }
+                if (err) { return console.error(err); }
 
-                console.log(jsonPath + ' created.');
+                if (cfg.debug) {
+                    console.log('< generated ' + jsonPath);
+                }
             });
         }
 
@@ -105,40 +107,18 @@ lookFor(currentDir, '.inkdocrc', function(err, found) {
             return console.log('all done.');
         }
 
-        console.log('generating markup...');
-        
-        inkdoc.generateMarkup(root, cfg, function(err, markup, identifiers) {
-            if (err) { return console.log(err); }
 
-            var left = cfg.skipIdentifiers ? 1 : 0;
+        console.log('preparing data...');
 
-            var markupPath = [cfg.outputDir, cfg.markupFile].join('/');
-            fs.writeFile(markupPath, markup, function(err) {
-                if (err) { return console.log(err); }
+        inkdoc.prepareStructure(root, cfg, function(err) {
+            if (err) { return console.error(err); }
 
-                console.log(markupPath + ' created.');
+            console.log('generating markup...');
 
-                --left;
-                if (left === 0) {
-                    console.log('all done.');
-                }
-            });
+            inkdoc.generateMarkup(root, cfg, function(err) {
+                if (err) { return console.error(err); }
 
-            if (cfg.skipIdentifiers) { return; }
-
-            //identifiers = JSON.stringify(identifiers, null, '\t');
-            identifiers = JSON.stringify(identifiers);
-
-            var identifiersPath = [cfg.outputDir, cfg.identifiersFile].join('/');
-            fs.writeFile(identifiersPath, identifiers, function(err) {
-                if (err) { return console.log(err); }
-
-                console.log(identifiersPath + ' created.');
-
-                --left;
-                if (left === 0) {
-                    console.log('all done.');
-                }
+                console.log('all done.');
             });
         });
     });

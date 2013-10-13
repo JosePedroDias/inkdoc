@@ -112,6 +112,7 @@ just run
 * **identifierFile**                    (String)   - file name to use to write the extracted identifiers. Defaults to `identifiers.json`
 * **template**                          (String)   - name of template to use. Default is `single-page`
 * **title**                             (String)   - project title. Default is `Documentation`
+* **debug**                             (Boolean)  - if true, additional info appears on the console
 * **sortChildren**                      (Boolean)  - if true, modules, classes/namespaces, functions and attributes are sorted alphabetically. If not, they appear in the order they're processed. Default is `true`
 * **ommitPrivates**                     (Boolean)  - if true, functions and attributes tagged @private will not appear on the generated markup. Default is `true`
 * **treatUnderscorePrefixesAsPrivates** (Boolean)  - if true, functions and attributes prefixed with _ will be treated as privates too. Default is `true`
@@ -126,7 +127,8 @@ just run
 The engine is split into the following parts:
 
 * comments parsing into JSON metadata `parseComments`
-* HTML markup generation from JSON metadata `generateMarkup`
+* additional massaging of the extracted data is done in `prepareStructure`
+* markup generation from JSON metadata `generateMarkup`
 
 It uses **esprima** to extract block comments from JavaScript source files.
 
@@ -145,6 +147,15 @@ It groups information in a hierarchy of modules, classes and functions/attribute
 
 
 ### Log
+
+**October the 13th 2013 (v0.2.0)**:
+
+* refactored generateMarkup into generateMarkup and prepareStructure
+* changed the signatures of all methods, therefore 0.2.0...
+* support for multi-file output via custom file handlebars helper
+* files in a template directory which have an extension other than .hbs get copied to the output dir
+* added debug option
+
 
 **September the 24th 2013 (v0.1.0)**:
 
