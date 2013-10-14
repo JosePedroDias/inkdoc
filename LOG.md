@@ -8,6 +8,10 @@
 
 ----
 
+## October the 14th 2013 (v0.2.1)
+
+* first round at the `multi-page` template. it's mostly a hack for now.
+
 
 ## October the 13th 2013 (v0.2.0)
 
