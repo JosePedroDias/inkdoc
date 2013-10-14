@@ -1,3 +1,6 @@
+/*jshint browser:true, node:false, laxcomma:true */
+/*global Ink:false */
+
 /*Ink.requireModules(
     ['Ink.Net.Ajax.1', 'Ink.Dom.Selector.1'],
     function(Ajax, Selector) {
@@ -8,19 +11,10 @@
         var Ajax     = Ink.Net.Ajax;
         var Aux      = Ink.UI.Aux;
         var Css      = Ink.Dom.Css;
-        var Element  = Ink.Dom.Element;
+        var Elem     = Ink.Dom.Element;
         var Event    = Ink.Dom.Event;
         var Selector = Ink.Dom.Selector;
         var Aux      = Ink.UI.Aux;
-
-
-
-        var escapeHash = function(hash) {
-            if (hash[0] === '.') {
-                hash = hash.substring(1);
-            }
-            return hash.replace(/\./g, '_');
-        };
 
 
 
@@ -37,11 +31,11 @@
                 isMatch: function(text, item) {
                     return text === item;
                 }
-            }, Element.data(this._el));
+            }, Elem.data(this._el));
 
             this._options = Ink.extendObj( this._options, options || {});
 
-            Event.observe(this._el, 'keyup', Ink.bindEvent(this._onKeyUp, this) );
+            Event.observe(this._el.parentNode, 'keyup', Ink.bindEvent(this._onKeyUp, this) );
 
             Event.observe(this._ulEl, 'click', Ink.bindEvent(this._onClick, this) );
 
@@ -92,37 +86,78 @@
                 Css.addClassName(this._ulEl, 'hidden');
             },
 
+
+
+            _fetchPossibleFocuses: function() {
+                return Selector.select('input, a', this._el.parentNode);
+            },
+
             _onKeyUp: function(ev) {
-                if (ev.keyCode === 27) {
+                //console.log(ev);
+
+                // ignore keyboard events with modifier keys
+                if (ev.altKey || ev.altGraphKey || ev.ctrlKey || ev.shiftKey || ev.metaKey) {
+                    return;
+                }
+
+
+
+                // autocomplete navigation
+                var kCode = ev.keyCode;
+
+                var delta = 0;
+                if (kCode === 27) {
                     Event.stop(ev);
                     this._el.value = '';
                     return this.hide();
                 }
+                else if (kCode === 13) {
+                    this.hide();
+                    this._el.focus();
+                    return;
+                }
+                else if (kCode === 38) {
+                    delta = -1;
+                }
+                else if (kCode === 40) {
+                    delta = 1;
+                }
 
+                if (delta) {
+                    var els = this._fetchPossibleFocuses();
+                    var len = els.length;
+                    var currentEl = document.activeElement;
+                    var index = els.indexOf(currentEl);
+                    index += delta;
+                    if      (index < 0) {    index += len; }
+                    else if (index >= len) { index -= len; }
+                    currentEl = els[index];
+                    currentEl.focus();
+                    return;
+                }
+
+
+
+                // check which autocomplete results match and display them
                 this.test();
             },
 
             _onClick: function(ev) {
+                var el = Event.element(ev);
+
                 this.hide();
                 this._el.focus();
 
-                var el = Event.element(ev);
-                el = Element.findUpwardsByTag(el, 'li');
-                //console.log(el);
-                Event.stop(ev);
-                var index = Aux.childIndex(el);
-                var item = this._results[index];
-                //console.log(item);
-
-                if (item[5]) {
-                    var ancestors = item[5].split(' ');
-                    location.hash = '#' + escapeHash( ancestors.shift() );
-                    setTimeout(function() {
-                        location.hash = '#' + item[4];
-                    }, 1000);
+                if (el === this._el) {
+                    return;
                 }
-                else {
-                    location.hash = '#' + item[4];
+                
+                var els = this._fetchPossibleFocuses();
+                els.shift(); // get rid of input
+                var index = els.indexOf(el);
+
+                if (this._options.onSuggestionActivated) {
+                    this._options.onSuggestionActivated(el, this._results[index]);
                 }
             }
         };
@@ -135,16 +170,19 @@
 
 
 
-        var fetchToElement = function(uri, selDestination) {
+        var fetchToElement = function(uri, selDestination, cb) {
             new Ajax(uri, {
                 method: 'GET',
                 onSuccess: function(tmp, data) {
                     var destEl = Ink.s(selDestination);
                     destEl.innerHTML = data;
+                    if (cb) {
+                        cb(null);
+                    }
                 },
-                onException: err,
-                onTimeout:   err,
-                onFailure:   err
+                onException: function() { if (cb) { cb('exception'); } },
+                onTimeout:   function() { if (cb) { cb('timeout');   } },
+                onFailure:   function() { if (cb) { cb('failure');   } }
             });
         };
 
@@ -152,18 +190,45 @@
 
         fetchToElement('modules.html', '.left-part');
 
-        Event.observe(window, 'hashchange', function(ev) {
-            var hash = location.hash.substring(1);
-            //console.log('hash', hash);
+        var onHashProcessed = function(err) {
+            if (err) { return console.log(err); }
+            Ink.s('.main-part').scrollTop = 0;
+            //var anchorEl = Ink.s('a[name="' + this + '"]');
+            //console.log('anchorEl', anchorEl);
+            location.hash = '#' + this;
+            //console.log('focusing ' + this + '!\n');
+        };
 
+        var processHash = function(hash, ev) {
             if (Ink.s('a[name="' + hash + '"]')) {
-                return;
+                return;//console.log('found anchor ' + hash + ' locally!\n');
             }
 
-            Event.stop(ev);
-            Ink.s('.main-part').scrollTop = 0;
-            fetchToElement(hash + '.html', '.main-part');
-        });
+            if (ev) {
+                Event.stop(ev);
+            }
+
+            var parts = hash.split('-');
+            var cb = Ink.bind(onHashProcessed, hash);
+            if (parts.length > 1) {
+                location.hash = '#';
+                fetchToElement(parts[0] + '.html', '.main-part', cb);
+                return;//console.log('composed hash, fetching ' + parts[0] + ' via AJAX...');
+            }
+            fetchToElement(hash + '.html', '.main-part', cb);
+            //console.log('module hash, fetching ' + hash + '!\n');
+        };
+
+        var onHashChange = function(ev) {
+            var hash = location.hash;
+            if (!hash || hash.length < 2) { return; }
+            hash = hash.substring(1);
+            processHash(hash, ev);
+        };
+
+        Event.observe(window, 'hashchange', onHashChange);
+
+        onHashChange();
 
 
 
