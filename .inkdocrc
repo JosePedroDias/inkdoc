@@ -1,7 +1,12 @@
 {
-    "outputDir":  "sample",
-    "sourceDir":  "lib",
-    "title":      "inkdoc module API",
+    "outputDir":       ".",
+    "sourceDir":       "lib",
+    "template":        "markdown",
+    "markupFile":      "API.md",
+    "debug":           false,
+    "skipJSON":        true,
+    "skipIdentifiers": true,
+    "title":           "inkdoc module API",
     "sourceFiles": [
         "parseComments.js",
         "prepareStructure.js",
