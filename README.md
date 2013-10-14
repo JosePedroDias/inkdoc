@@ -2,7 +2,6 @@
 
 
 [![NPM](https://nodei.co/npm/inkdoc.png?downloads=true&compact=true)](https://nodei.co/npm/inkdoc/)
-
 [![NPM](https://nodei.co/npm-dl/inkdoc.png?months=2)](https://nodei.co/npm/inkdoc/)
 
 
@@ -26,15 +25,15 @@ One can edit and extend its logic (kinda hard) and templates (easy as pie - it u
 
 ## how to
 
-* [configure your project](/JosePedroDias/inkdoc/blob/master/HOW_TO.md#configure_your_project)
-* [document your source code](/JosePedroDias/inkdoc/blob/master/HOW_TO.md#document_your_source_code)
-* [create / customize a template](/JosePedroDias/inkdoc/blob/master/HOW_TO.md#create_/_customize_a_template)
+* [configure your project](https://github.com/JosePedroDias/inkdoc/blob/master/HOW_TO.md#configure_your_project)
+* [document your source code](https://github.com/JosePedroDias/inkdoc/blob/master/HOW_TO.md#document_your_source_code)
+* [create / customize a template](https://github.com/JosePedroDias/inkdoc/blob/master/HOW_TO.md#create_/_customize_a_template)
 
 
 
 ## sample results
 
-* [inkdoc API (generated from the files in lib folder)](/JosePedroDias/inkdoc/blob/master/API.md)
+* [inkdoc API (generated from the files in lib folder)](https://github.com/JosePedroDias/inkdoc/blob/master/API.md)
 * your page can be here!
 
 
@@ -59,4 +58,4 @@ It groups information in a hierarchy of modules, classes and functions/attribute
 
 ## log
 
-You can find a human-readable log of inkdoc versions and their changes [here](/JosePedroDias/inkdoc/blob/master/LOG.md)
+You can find a human-readable log of inkdoc versions and their changes [here](https://github.com/JosePedroDias/inkdoc/blob/master/LOG.md)
