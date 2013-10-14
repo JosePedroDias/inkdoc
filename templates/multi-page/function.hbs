@@ -1,0 +1,61 @@
+<div class="box box-function">
+
+    {{#if isConstructor}}
+        <h2><a name="{{{hash}}}">Constructor: {{parent.name}}()</a></h2>
+    {{else}}
+        {{#ifvalue parent.kind value="class"}}
+            <h2><a name="{{{hash}}}">Method: {{parent.name}}.{{name}}()</a></h2>
+        {{else}}
+            <h2><a name="{{{hash}}}">Function: {{parent.name}}.{{name}}()</a></h2>
+        {{/ifvalue}}
+    {{/if}}
+
+    {{#if async}}
+        <span class="tag">async</span>
+    {{/if}}
+    {{#if deprecated}}
+        <span class="tag">deprecated</span>
+    {{/if}}
+
+    {{#if text}}
+        <p class="text">{{{text}}}</p>
+    {{/if}}
+
+    {{#if return}}
+        <p class="return">
+            Returns 
+            {{#if return.type}}
+                <pre>{{return.type}}</pre>
+            {{/if}}
+            {{#if return.description}}
+                <span class="description">{{{description}}}</span>
+            {{/if}}
+        </p>
+    {{/if}}
+
+    {{#if params.length}}
+        <h3>Parameters:</h3>
+        <ul class="params">
+        {{#each params}}
+            <li>
+                {{#if type}}
+                    <pre>{{type}}</pre>
+                {{/if}}
+
+                {{#if isOptional}}
+                    <label class="optional">[{{name}}]</label>
+                {{else}}
+                    <label>{{name}}</label>
+                {{/if}}
+
+                {{#if description}}
+                    <span class="description">{{{description}}}</span>
+                {{/if}}
+            </li>
+        {{/each}}
+        </ul>
+    {{/if}}
+
+    {{> examples}}
+
+</div>

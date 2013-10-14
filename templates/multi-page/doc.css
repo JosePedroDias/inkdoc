@@ -1,0 +1,144 @@
+.top-part {
+    position: fixed;
+    left: 200px;
+    top: 0;
+    height: 27px;
+    right: 0;
+    background-color: #DDD;
+    text-align: center;
+}
+
+.autocomplete-wrapper .m { color: #A88; }
+.autocomplete-wrapper .c { color: #8A8; }
+.autocomplete-wrapper .f { color: #88A; }
+
+.left-part {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    bottom: 0;
+    background-color: #DDD;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.main-part {
+    position: fixed;
+    left: 200px;
+    top: 27px;
+    bottom: 0;
+    right: 0;
+    background-color: #FFF;
+    overflow: auto;
+}
+
+.start-message {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 1em;
+    width: 20em;
+    height: 2em;
+    margin-left: -10em;
+    margin-top: -1em:
+}
+
+
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+a {
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+pre,
+code {
+    font-family: monospace;
+}
+
+.tag {
+    background-color: #555;
+    color: #FFF;
+    padding: 0.125em 0.25em;
+    border-radius: 0.25em;
+    margin-right: 0.25em;
+}
+
+.return pre,
+.params  pre,
+.box-attribute pre {
+    display: inline-block;
+    min-width: 14em;
+    text-align: right;
+    margin: 0;
+}
+
+.return label,
+.params label {
+    min-width: 12em;
+}
+
+.example {
+    background-color: #EEEEDD;
+    margin: 0;
+}
+
+.description > * {
+    display: inline-block;
+}
+
+.box-modules {
+    font-size: 0.85em !important;
+}
+
+.box-modules h2 {
+    font-size: 1.4em !important;
+}
+
+.box-modules ul {
+    margin: 0;
+}
+
+.box-modules a {
+    text-decoration: none;
+}
+
+.box {
+    border-top-left-radius: 1em;
+    padding: 1em;
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+}
+
+
+.box-module,
+.box-class,
+.box-function,
+.box-attribute {
+    border-top-width: 3px;
+    border-top-style: solid;
+
+    border-left-width: 6px;
+    border-left-style: solid;
+}
+
+.box-module {    border-color: #C99; }
+.box-class {     border-color: #9C9; }
+.box-function {  border-color: #99C; }
+.box-attribute { border-color: #AAA; }
