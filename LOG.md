@@ -1,5 +1,15 @@
 # LOG
 
+## TODO
+
+* Optionally apply tidy to markup (attempted, not working well in OSX)
+* Add a syntax highlighter to sample tags, fallback to GFM code blocks
+* Add file include helper to handlebars (so source code can be output)
+* Check/fix paths in Windows
+
+
+----
+
 
 ## ONGOING
 
