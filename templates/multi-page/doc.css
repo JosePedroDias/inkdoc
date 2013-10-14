@@ -41,7 +41,9 @@
     width: 20em;
     height: 2em;
     margin-left: -10em;
-    margin-top: -1em:
+    margin-top: -1em;
+    line-height: 1em;
+    text-align: center;
 }
 
 
@@ -103,12 +105,12 @@ code {
     display: inline-block;
 }
 
-.box-modules {
-    font-size: 0.85em !important;
+body .box-modules {
+    font-size: 0.85em;
 }
 
-.box-modules h2 {
-    font-size: 1.4em !important;
+body .box-modules h2 {
+    font-size: 1.4em;
 }
 
 .box-modules ul {
