@@ -54,3 +54,9 @@ It uses **handlebars** templates for generating the final markup.
 It uses **marked** to convert markdown syntax to HTML.
 
 It groups information in a hierarchy of modules, classes and functions/attributes.
+
+
+
+## log
+
+You can find a human-readable log of inkdoc versions and their changes [here](/JosePedroDias/inkdoc/blob/master/LOG.md)
