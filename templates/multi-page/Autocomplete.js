@@ -1,11 +1,8 @@
 /*jshint browser:true, node:false, laxcomma:true */
 /*global Ink:false */
 
-/*Ink.createModule(
+Ink.createModule(
     'Inkx', 'Autocomplete',
-    ['Ink.UI.Aux_1', 'Ink.Dom.Css_1', 'Ink.Dom.Element_1', 'Ink.Dom.Event_1', 'Ink.Dom.Selector_1'],*/
-
-Ink.requireModules(
     ['Ink.UI.Aux_1', 'Ink.Dom.Css_1', 'Ink.Dom.Element_1', 'Ink.Dom.Event_1', 'Ink.Dom.Selector_1'],
     function(Aux, Css, Elem, Event, Selector) {
         
@@ -153,8 +150,6 @@ Ink.requireModules(
             }
         };
 
-        window.Autocomplete = Autocomplete;
-
-        //return Autocomplete;
+        return Autocomplete;
     }
 );

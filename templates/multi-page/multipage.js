@@ -2,12 +2,8 @@
 /*global Ink:false */
 
 Ink.requireModules(
-    [/*'Inkx_Autocomplete',*/ 'Ink.Net.Ajax_1', 'Ink.Dom.Event_1', 'Ink.Dom.Selector_1'],
-    function(/*Autocomplete,*/ Ajax, Event/*, Selector*/) {
-
-        var Autocomplete = window.Autocomplete;
-
-
+    ['Inkx_Autocomplete', 'Ink.Net.Ajax_1', 'Ink.Dom.Event_1', 'Ink.Dom.Selector_1'],
+    function(Autocomplete, Ajax, Event/*, Selector*/) {
 
         var err = function() {
             console.log('error', arguments);
