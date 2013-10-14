@@ -25,9 +25,9 @@ One can edit and extend its logic (kinda hard) and templates (easy as pie - it u
 
 ## how to
 
-* [configure your project](https://github.com/JosePedroDias/inkdoc/blob/master/HOW_TO.md#configure-your-project)
-* [document your source code](https://github.com/JosePedroDias/inkdoc/blob/master/HOW_TO.md#document-your-source-code)
-* [create / customize a template](https://github.com/JosePedroDias/inkdoc/blob/master/HOW_TO.md#create--customize-a-template)
+* [configure your project](https://github.com/JosePedroDias/inkdoc/blob/master/HOW_TO.md#how-to-configure-your-project)
+* [document your source code](https://github.com/JosePedroDias/inkdoc/blob/master/HOW_TO.md#how-to-document-your-source-code)
+* [create / customize a template](https://github.com/JosePedroDias/inkdoc/blob/master/HOW_TO.md#how-to-create--customize-a-template)
 
 
 
