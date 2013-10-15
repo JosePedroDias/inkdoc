@@ -23,7 +23,8 @@ Ink.createModule(
 
             this._options = Ink.extendObj( this._options, options || {});
 
-            Event.observe(this._el.parentNode, 'keyup', Ink.bindEvent(this._onKeyUp, this) );
+            Event.observe(this._el.parentNode, 'keydown', Ink.bindEvent(this._onKeyDown, this) );
+            Event.observe(this._el.parentNode, 'keyup', Ink.bindEvent(this._onKeyUp,     this) );
 
             Event.observe(this._ulEl, 'click', Ink.bindEvent(this._onClick, this) );
 
@@ -80,35 +81,44 @@ Ink.createModule(
                 return Selector.select('input, a', this._el.parentNode);
             },
 
-            _onKeyUp: function(ev) {
-                //console.log(ev);
+            _onKeyDown: function(ev) {
+                var kCode = ev.keyCode;
+                if (kCode === 9) { // tab is present
+                    Event.stopDefault(ev);
+                }
+            },
 
-                // ignore keyboard events with modifier keys
-                if (ev.altKey || ev.altGraphKey || ev.ctrlKey || ev.shiftKey || ev.metaKey) {
+            _onKeyUp: function(ev) {
+                var kCode = ev.keyCode;
+
+                if (kCode === 9) { // tab is present
+                    Event.stop(ev);
+                }
+                else if (ev.altKey || ev.altGraphKey || ev.ctrlKey || ev.shiftKey || ev.metaKey || kCode === 16) { // ignore keyboard events with modifier keys
                     return;
                 }
 
 
 
                 // autocomplete navigation
-                var kCode = ev.keyCode;
+                
 
                 var delta = 0;
-                if (kCode === 27) {
+                if (kCode === 27) { // escape
                     Event.stop(ev);
                     this._el.value = '';
                     return this.hide();
                 }
-                else if (kCode === 13) {
+                else if (kCode === 13) { // enter
                     this.hide();
                     this._el.focus();
                     return;
                 }
-                else if (kCode === 38) {
+                else if (kCode === 38 || (kCode === 9 && ev.shiftKey)) { // up | shift + tab
                     delta = -1;
                 }
-                else if (kCode === 40) {
-                    delta = 1;
+                else if (kCode === 40 || (kCode === 9 && !ev.shiftKey)) { // down | tab
+                    delta = 1;  
                 }
 
                 if (delta) {
