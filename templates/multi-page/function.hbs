@@ -18,11 +18,11 @@
     {{/if}}
 
     {{#if text}}
-        <p class="text">{{{text}}}</p>
+        <span class="text">{{{text}}}</span>
     {{/if}}
 
     {{#if return}}
-        <p class="return">
+        <div class="return">
             Returns 
             {{#if return.type}}
                 <pre>{{return.type}}</pre>
@@ -30,7 +30,7 @@
             {{#if return.description}}
                 <span class="description">{{{description}}}</span>
             {{/if}}
-        </p>
+        </div>
     {{/if}}
 
     {{#if params.length}}
@@ -43,10 +43,15 @@
                 {{/if}}
 
                 {{#if isOptional}}
-                    <label class="optional">[{{name}}]</label>
+                    <label class="optional">[{{name}}]
                 {{else}}
-                    <label>{{name}}</label>
+                    <label>{{name}}
                 {{/if}}
+
+                {{#if defaultValue}}
+                    ={{defaultValue}}
+                {{/if}}
+                </label>
 
                 {{#if description}}
                     <span class="description">{{{description}}}</span>

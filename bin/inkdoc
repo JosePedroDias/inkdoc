@@ -76,6 +76,8 @@ lookFor(currentDir, '.inkdocrc', function(err, found) {
         cfg = extend(cfg, current);
     }
 
+    cfg.markupExtension = cfg.markupFile.split('.').pop();
+
     //console.log('CONFIG:');
     //console.log(cfg);
 

@@ -4,7 +4,6 @@
 
 * Optionally apply tidy to markup (attempted, not working well in OSX)
 * Add a syntax highlighter to sample tags, fallback to GFM code blocks
-* Add file include helper to handlebars (so source code can be output)
 * Check/fix paths in Windows
 
 
@@ -13,10 +12,18 @@
 
 ## ONGOING
 
-* Create additional templates and stylesheets (ex: one page per module, client side search)
+* the html templates are now that appealing... does anyone wanna help?
 
 
 ----
+
+## November the 1st 2013 (v0.2.2)
+
+* now the module tag can be invoked several times (there was a bug which was losing info and generating duplicates)
+* generated files use the extension of the `markupFile` option
+* created `markdown-multi-page` template
+* fixed some bugs on `markdown-multi-page` and `multi-page` templates (should apply them to other ones too)
+
 
 ## October the 14th 2013 (v0.2.1)
 

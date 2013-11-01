@@ -49,9 +49,19 @@
 
 
 h1,
-h2,
-h3 {
+h2 {
     margin: 0;
+}
+
+h2 {
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 1.1em;
+    margin: 0;
+    margin-top: 0.5em;
 }
 
 a {
@@ -69,6 +79,15 @@ ul {
     padding: 0;
 }
 
+.text ul, .text ol {
+    list-style-type: disc;
+    padding-left: 1.4em;
+}
+
+.text a {
+    color: #0069D6;
+}
+
 pre,
 code {
     font-family: monospace;
@@ -82,8 +101,12 @@ code {
     margin-right: 0.25em;
 }
 
+.return {
+    margin-top: 1em;
+}
+
 .return pre,
-.params  pre,
+.params pre,
 .box-attribute pre {
     display: inline-block;
     min-width: 14em;
