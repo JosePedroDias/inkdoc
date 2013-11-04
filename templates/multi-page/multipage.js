@@ -93,6 +93,7 @@ Ink.requireModules(
 
         new Ajax('identifiers.json', {
             method: 'GET',
+            evalJS: 'force',
             onSuccess: function(tmp, model) { // item structure: 0: text compare, 1: m/c/f, 2: real name, 3: file, 4: hash, 5: ancestors
                 ac = new Autocomplete('.autocomplete', {
                      model:      model
