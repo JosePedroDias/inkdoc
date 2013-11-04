@@ -17,6 +17,11 @@
 
 ----
 
+## November the 4th 2013 (v0.2.3)
+
+* fixed bug in multipage template's feature
+
+
 ## November the 1st 2013 (v0.2.2)
 
 * now the module tag can be invoked several times (there was a bug which was losing info and generating duplicates)

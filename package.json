@@ -1,6 +1,6 @@
 {
   "name": "inkdoc",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "KISS JavaScript documentation generator engine",
   "main": "lib/index.js",
   "preferGlobal": true,
