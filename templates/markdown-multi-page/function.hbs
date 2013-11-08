@@ -1,7 +1,9 @@
 {{#if return}}{{#if return.type}}`{{return.type}}`
-{{/if}}{{/if}}**{{name}}**({{#foreach params}}
-{{#if isOptional}}[{{/if}}{{#if type}}`{{type}}` {{/if}}{{name}}{{#if isOptional}}]{{/if}}{{#if defaultValue}}=`{{{defaultValue}}}`{{/if}}{{#unless $last}},{{/unless}}{{/foreach}}
-) *function*
+{{/if}}{{/if}}**{{name}}**({{#foreach params}}{{#if isFirstLevel}}{{#if isOptional}}[{{/if}}{{name}}{{#if isOptional}}]{{/if}}{{#unless $last}}, {{/unless}}{{/if}}{{/foreach}}) *function*
+
+{{#foreach params}}> {{#if isOptional}}[{{/if}}{{#if type}}`{{type}}` {{/if}}**{{name}}**{{#if isOptional}}]{{/if}}{{#if defaultValue}}=`{{{defaultValue}}}`{{/if}}{{#if description}} - {{{description}}}{{/if}}
+
+{{/foreach}}{{#if return}}> **returns** {{#if return.type}}`{{return.type}}`{{/if}}{{#if return.description}} - {{{return.description}}}{{/if}}{{/if}}
 
 {{#if text}}{{{text}}}{{/if}}
 

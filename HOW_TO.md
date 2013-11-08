@@ -61,6 +61,7 @@ This enforces you to comply to the names you've given on your code. Well, it doe
     skipJSON                          (Boolean)  if true, the extracted metadata won't be persisted to file. Default is false
     skipMarkup                        (Boolean)  if true, no markup will be generated. Default is false
     skipIdentifiers                   (Boolean)  if true, no identifiers will be extracted. Default is false
+    skipInkdocPromotion               (Boolean)  if true, no footer will be featured lightly promoting inkdoc
 
 
 ----

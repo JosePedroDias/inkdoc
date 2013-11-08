@@ -12,18 +12,24 @@
 
 
 
-**generateMarkup**(
-`Object` root,
-`Object` options,
-`Boolean` options.ommitPrivates,
-`Boolean` options.treatUnderscorePrefixesAsPrivates,
-`String` options.title,
-`Function(err, markup)` cb
-) *function*
+**generateMarkup**(root, options, cb) *function*
 
-<p>Visits data and prepares it for templating
-Extracts additional info</p>
+> `Object` **root**
 
+> `Object` **options**
+
+> `Boolean` **options.ommitPrivates** - if true, functions and attributes tagged private will not appear on the generated markup
+
+> `Boolean` **options.treatUnderscorePrefixesAsPrivates** - if true, functions and attributes prefixed with _ will be treated as privates too
+
+> `String` **options.title** - project title
+
+> `Function(err, markup)` **cb**
+
+
+
+Visits data and prepares it for templating
+Extracts additional info
 
 **async**
 
@@ -34,18 +40,25 @@ Extracts additional info</p>
 ---
 
 
-**generateMarkup**(
-`Object` root,
-`Object` options,
-`String` options.templatesDir,
-`String` options.template,
-`String` options.markupFile,
-`Function(err)` cb
-) *function*
+`String`
+**generateMarkup**(root, options, cb) *function*
 
-<p>Expands handlebars templates in templatesDir/template usin root as context.
-Starts at index.hbs, loading remaining .hbs files as partials</p>
+> `Object` **root** - root data context
 
+> `Object` **options**
+
+> `String` **options.templatesDir** - path to the directory where templates reside
+
+> `String` **options.template** - name of template to use (also a directory)
+
+> `String` **options.markupFile** - name of the main output file (remaining ones' names come fore handlebars file helper argument)
+
+> `Function(err)` **cb**
+
+> **returns** `String` - yo yo
+
+Expands handlebars templates in templatesDir/template usin root as context.
+Starts at index.hbs, loading remaining .hbs files as partials
 
 
 
@@ -56,15 +69,19 @@ Starts at index.hbs, loading remaining .hbs files as partials</p>
 ---
 
 
-**parseComments**(
-`Object` cfg,
-`Boolean` cfg.debug,
-`String[]` cfg.sourceFiles,
-`Function(err, root)` cb
-) *function*
+**parseComments**(cfg, cb) *function*
 
-<p>Reads source files and populated a shared object with the extracted metadata, which is sent to the callback</p>
+> `Object` **cfg**
 
+> [`Boolean` **cfg.debug**]=`false` - show debug info?
+
+> `String[]` **cfg.sourceFiles** - file paths of files to parse
+
+> `Function(err, root)` **cb** - called with regular err, root object syntax
+
+
+
+Reads source files and populated a shared object with the extracted metadata, which is sent to the callback
 
 **async**
 

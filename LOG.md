@@ -17,6 +17,12 @@
 
 ----
 
+## November the 8th 2013 (v0.2.4)
+
+* improved markdown templates for functions A LOT (hard to do with all the whitespace constraints!)
+* added a small inkdoc promoting message in the generated doc footer's main page, can be opted out via configuration (skipInkdocPromotion)
+
+
 ## November the 4th 2013 (v0.2.3)
 
 * fixed bug in multipage template's feature
