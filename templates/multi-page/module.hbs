@@ -3,7 +3,7 @@
     <div class="box box-module">
 
         {{#if name}}
-            <h2><a name="{{{hash}}}">Module: {{name}}</a></h2>
+            <h2><a name="{{{hash}}}">{{name}} <i>module</i></a></h2>
         {{/if}}
 
         {{!<p>Defined in file: {file}</p>}}
@@ -50,7 +50,13 @@
             <h3>Defined functions:</h3>
             <ul>
             {{#each functions}}
-                <li><a href="#{{{hash}}}">{{name}}()</a></li>
+                <li><a href="#{{{hash}}}">
+                {{#if isConstructor}}
+                    {{parent.name}}
+                {{else}}
+                    {{parent.name}}.{{name}}
+                {{/if}}
+                ({{#foreach params}}{{#if isFirstLevel}}{{#if isOptional}}[{{/if}}{{name}}{{#if isOptional}}]{{/if}}{{#unless $last}}, {{/unless}}{{/if}}{{/foreach}})</a></li>
             {{/each}}
             </ul>
         {{/if}}

@@ -1,14 +1,26 @@
 <div class="box box-function">
 
+    <h2><a name="{{{hash}}}">
     {{#if isConstructor}}
-        <h2><a name="{{{hash}}}">Constructor: {{parent.name}}()</a></h2>
+        {{parent.name}}
     {{else}}
         {{#ifvalue parent.kind value="class"}}
-            <h2><a name="{{{hash}}}">Method: {{parent.name}}.{{name}}()</a></h2>
+            {{parent.name}}.{{name}}
         {{else}}
-            <h2><a name="{{{hash}}}">Function: {{parent.name}}.{{name}}()</a></h2>
+            {{parent.name}}.{{name}}
         {{/ifvalue}}
     {{/if}}
+    ({{#foreach params}}{{#if isFirstLevel}}{{#if isOptional}}[{{/if}}{{name}}{{#if isOptional}}]{{/if}}{{#unless $last}}, {{/unless}}{{/if}}{{/foreach}})
+    {{#if isConstructor}}
+        <i>constructor</i>
+    {{else}}
+        {{#ifvalue parent.kind value="class"}}
+            <i>method</i>
+        {{else}}
+            <i>function</i>
+        {{/ifvalue}}
+    {{/if}}
+    </a></h2>
 
     {{#if async}}
         <span class="tag">async</span>
@@ -17,24 +29,8 @@
         <span class="tag">deprecated</span>
     {{/if}}
 
-    {{#if text}}
-        <span class="text">{{{text}}}</span>
-    {{/if}}
-
-    {{#if return}}
-        <div class="return">
-            Returns 
-            {{#if return.type}}
-                <pre>{{return.type}}</pre>
-            {{/if}}
-            {{#if return.description}}
-                <span class="description">{{{description}}}</span>
-            {{/if}}
-        </div>
-    {{/if}}
-
     {{#if params.length}}
-        <h3>Parameters:</h3>
+        <!--<h3>Parameters:</h3>-->
         <ul class="params">
         {{#each params}}
             <li>
@@ -59,6 +55,22 @@
             </li>
         {{/each}}
         </ul>
+    {{/if}}
+
+    {{#if return}}
+        <div class="return">
+            Returns 
+            {{#if return.type}}
+                <pre>{{return.type}}</pre>
+            {{/if}}
+            {{#if return.description}}
+                <span class="description">{{{description}}}</span>
+            {{/if}}
+        </div>
+    {{/if}}
+
+    {{#if text}}
+        <span class="text">{{{text}}}</span>
     {{/if}}
 
     {{> examples}}

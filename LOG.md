@@ -12,20 +12,27 @@
 
 ## ONGOING
 
-* the html templates are now that appealing... does anyone wanna help?
+* the html templates are not that appealing... does anyone wanna help?
+* single-page template need full rewrite OR migrating most logic from multi-page which has since improved!
+* handlebars whitespace handling, which is very ineffective (logic tags generating \ns and stuff, particularly painful when generating markdown!)
 
 
 ----
 
+## November the 8th 2013 (v0.2.5)
+
+* improved `multi-page` template to match most of `markdown`'s functionality (function signatures and order of type, parameters, description)
+
+
 ## November the 8th 2013 (v0.2.4)
 
-* improved markdown templates for functions A LOT (hard to do with all the whitespace constraints!)
-* added a small inkdoc promoting message in the generated doc footer's main page, can be opted out via configuration (skipInkdocPromotion)
+* improved `markdown` templates for functions A LOT (hard to do with all the whitespace constraints!)
+* added a small inkdoc promoting message in the generated doc footer's main page, can be opted out via configuration (`skipInkdocPromotion`)
 
 
 ## November the 4th 2013 (v0.2.3)
 
-* fixed bug in multipage template's feature
+* fixed bug in multi-page template's feature
 
 
 ## November the 1st 2013 (v0.2.2)

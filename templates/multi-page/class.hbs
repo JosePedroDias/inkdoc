@@ -1,10 +1,12 @@
 <div class="box box-class">
 
+    <h2><a name="{{{hash}}}">{{name}} <i>
     {{#if isNamespace}}
-        <h2><a name="{{{hash}}}">Namespace: {{name}}</a></h2>
+        namespace
     {{else}}
-        <h2><a name="{{{hash}}}">Class: {{name}}</a></h2>
+        class
     {{/if}}
+    </i></a></h2>
 
     {{!<p>Defined in file: {file}</p>}}
 
@@ -33,11 +35,13 @@
         
         <ul>
         {{#each functions}}
+            <li><a href="#{{{hash}}}">
             {{#if isConstructor}}
-                <li><a href="#{{{hash}}}">{{parent.name}}()</a></li>
+                {{parent.name}}
             {{else}}
-                <li><a href="#{{{hash}}}">{{parent.name}}.{{name}}()</a></li>
+                {{parent.name}}.{{name}}
             {{/if}}
+            ({{#foreach params}}{{#if isFirstLevel}}{{#if isOptional}}[{{/if}}{{name}}{{#if isOptional}}]{{/if}}{{#unless $last}}, {{/unless}}{{/if}}{{/foreach}})</a></li>
         {{/each}}
         </ul>
     {{/if}}
