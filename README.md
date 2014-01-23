@@ -1,7 +1,8 @@
 # inkdoc - a KISS JavaScript documentation engine
 
 [![dependency status](https://david-dm.org/josepedrodias/inkdoc.png)](https://david-dm.org/josepedrodias/inkdoc)
-[![published Version](https://badge.fury.io/js/inkdoc.png)](http://badge.fury.io/js/inkdoc)
+[![published version](https://badge.fury.io/js/inkdoc.png)](http://badge.fury.io/js/inkdoc)
+[![still maintained?](http://stillmaintained.com/JosePedroDias/inkdoc.png)](http://stillmaintained.com/JosePedroDias/inkdoc)
 
 [![NPM](https://nodei.co/npm/inkdoc.png?downloads=true&compact=true)](https://nodei.co/npm/inkdoc/)
 [![NPM](https://nodei.co/npm-dl/inkdoc.png?months=2)](https://nodei.co/npm/inkdoc/)
