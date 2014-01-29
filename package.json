@@ -31,7 +31,8 @@
     "esprima":    ">= 1.0.3",
     "fs-extra":   ">= 0.7.1",
     "handlebars": ">= 1.0.12",
-    "marked":     ">= 0.2.9"
+    "marked":     ">= 0.2.9",
+    "glob":       ">= 3.2.8"
   },
   "bin": {
     "inkdoc": "bin/inkdoc"
