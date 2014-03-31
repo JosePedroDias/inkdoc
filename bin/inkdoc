@@ -5,6 +5,7 @@
 
 
 var fs     = require('fs'),
+    glob   = require('simple-glob'),
     inkdoc = require('../lib/index');
 
 
@@ -81,14 +82,9 @@ lookFor(currentDir, '.inkdocrc', function(err, found) {
     //console.log('CONFIG:');
     //console.log(cfg);
 
-    var i, f = cfg.sourceFiles.length;
-    if (cfg.sourceDir) {
-        for (i = 0; i < f; ++i) {
-            cfg.sourceFiles[i] = [cfg.sourceDir, cfg.sourceFiles[i]].join('/');
-        }
-    }
-
-    //console.log(cfg.files);
+    cfg.sourceFiles = glob({cwd:cfg.sourceDir}, cfg.sourceFiles);
+    cfg.sourceFiles = cfg.sourceFiles.map(function(f) { return [cfg.sourceDir, f].join('/'); });
+    //console.log(cfg.sourceFiles);
 
     console.log('parsing source files into metadata...');
     inkdoc.parseComments(cfg, function(err, root) {

@@ -14,34 +14,6 @@
 
 **generateMarkup**(root, options, cb) *function*
 
-> `Object` **root**
-
-> `Object` **options**
-
-> `Boolean` **options.ommitPrivates** - if true, functions and attributes tagged private will not appear on the generated markup
-
-> `Boolean` **options.treatUnderscorePrefixesAsPrivates** - if true, functions and attributes prefixed with _ will be treated as privates too
-
-> `String` **options.title** - project title
-
-> `Function(err, markup)` **cb**
-
-
-
-Visits data and prepares it for templating
-Extracts additional info
-
-**async**
-
-
-
-
-
----
-
-
-**generateMarkup**(root, options, cb) *function*
-
 > `Object` **root** - root data context
 
 > `Object` **options**
@@ -60,6 +32,34 @@ Expands handlebars templates in templatesDir/template usin root as context.
 Starts at index.hbs, loading remaining .hbs files as partials
 
 
+
+
+
+
+
+---
+
+
+**generateMarkup**(root, options, cb) *function*
+
+> `Object` **root**
+
+> `Object` **options**
+
+> `Boolean` **options.ommitPrivates** - if true, functions and attributes tagged private will not appear on the generated markup
+
+> `Boolean` **options.treatUnderscorePrefixesAsPrivates** - if true, functions and attributes prefixed with _ will be treated as privates too
+
+> `String` **options.title** - project title
+
+> `Function(err, markup)` **cb**
+
+
+
+Visits data and prepares it for templating
+Extracts additional info
+
+**async**
 
 
 

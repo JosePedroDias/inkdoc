@@ -19,6 +19,11 @@
 
 ----
 
+## January the 30th 2014 (v0.3.0)
+
+* added support for glob syntax (like `.gitignore` or grunt) to the sourceFiles option. Thanks mariomc and the guy who made simple-glob module.
+
+
 ## November the 8th 2013 (v0.2.5)
 
 * improved `multi-page` template to match most of `markdown`'s functionality (function signatures and order of type, parameters, description)

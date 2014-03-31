@@ -1,6 +1,6 @@
 {
   "name": "inkdoc",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "KISS JavaScript documentation generator engine",
   "main": "lib/index.js",
   "preferGlobal": true,
@@ -28,10 +28,11 @@
     "node": ">= 0.8.x"
   },
   "dependencies": {
-    "esprima":    ">= 1.0.3",
-    "fs-extra":   ">= 0.7.1",
-    "handlebars": ">= 1.0.12",
-    "marked":     ">= 0.2.9"
+    "esprima":     ">= 1.0.3",
+    "fs-extra":    ">= 0.7.1",
+    "handlebars":  ">= 1.0.12",
+    "marked":      ">= 0.2.9",
+    "simple-glob": ">= 0.1.0"
   },
   "bin": {
     "inkdoc": "bin/inkdoc"
