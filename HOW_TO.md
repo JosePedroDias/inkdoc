@@ -16,7 +16,7 @@ Edit the configuration options which need overriding, such as:
 {
     "outputDir":  "docs",
     "sourceDir":  "lib",
-    "sourcefiles": [
+    "sourceFiles": [
         "moduleX.js",
         "moduleY.js"
     ],
